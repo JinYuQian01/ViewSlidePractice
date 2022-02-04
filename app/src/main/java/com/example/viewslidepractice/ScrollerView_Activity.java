@@ -15,7 +15,7 @@ public class ScrollerView_Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_scroller_view);
-        baseOnScrollerView = new BaseOnScrollerView(this);
+        baseOnScrollerView = findViewById(R.id.baseScroller_View);
         baseOnScrollerView.smoothScrollTo(-400,0);
     }
 }

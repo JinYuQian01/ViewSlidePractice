@@ -10,26 +10,24 @@ import androidx.annotation.Nullable;
 public class BaseOnScrollerView extends View {
     private Scroller xScroller;
     private Context mContext;
-    public BaseOnScrollerView(Context context) {
-        super(context);
-        this.xScroller=new Scroller(context);
-    }
 
     public BaseOnScrollerView(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
+        xScroller=new Scroller(getContext());
     }
 
     public BaseOnScrollerView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
-        super(context, attrs, defStyleAttr);
+        this(context,attrs);
     }
 
     public BaseOnScrollerView(Context context, @Nullable AttributeSet attrs, int defStyleAttr, int defStyleRes) {
-        super(context, attrs, defStyleAttr, defStyleRes);
+        this(context,attrs);
     }
 
     @Override
     public void computeScroll() {
         super.computeScroll();
+        //xScroller=new Scroller(getContext());
         if (xScroller.computeScrollOffset()) {
             ((View)getParent()).scrollTo(xScroller.getCurrX(),
                     xScroller.getCurrY());
@@ -38,6 +36,7 @@ public class BaseOnScrollerView extends View {
     }
 
     public void smoothScrollTo(int destX,int destY){
+        //xScroller=new Scroller(getContext());
         int scrollX=getScrollX();
         int delta=destX-scrollX;
         xScroller.startScroll(scrollX,0,delta,200);
