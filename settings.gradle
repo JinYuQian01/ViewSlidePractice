@@ -1,2 +1,3 @@
 rootProject.name = "ViewSlidePractice"
 include ':app'
+include ':designviewpractice'
